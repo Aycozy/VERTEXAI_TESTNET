@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import {Data} from '../utils/marketPlace'
 import {uploadJSONToIPFS, uploadFileToIPFS} from '../utils/pinata.js'
 import MarketplaceJSON  from "../Marketplace.json";
-import axios from "axios";
+import {axios} from "axios";
 
 
 export const TransactionContext = React.createContext();
