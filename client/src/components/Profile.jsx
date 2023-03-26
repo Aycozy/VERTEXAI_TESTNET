@@ -10,7 +10,7 @@ export default function Profile () {
     
 
     return (
-        <div className="profileClass min-h-full">
+        <div className="profileClass h-[400px]">
             <div className="profileClass">
             <div className="flex text-center flex-col mt-11 md:text-2xl text-black">
                 <div className="mb-5">

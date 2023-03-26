@@ -29,8 +29,8 @@ return (
         <h1 className="font-extrabold text-[#0f070d] font-serif text-[32px]"> UNLEASH YOUR CREATIVITY<br/>WITH AI GENERATED <br/> NFT's </h1>
         <a href="/sellNFT" className="font-bold mt-10 w-35 bg-[#261c63] bg-opacity-75 text-white rounded p-2 shadow-lg absolute">
                     Get started
-                </Link>
                 </a>
+                </div>
         </div>
         <div className="flex flex-col place-items-center mt-10">
             <div className="md:text-xl font-bold font-serif text-white">
