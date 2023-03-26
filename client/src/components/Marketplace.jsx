@@ -27,9 +27,9 @@ return (
           <img src={images[currentIndex].src} alt='headerpic' className='w-full h-[500px]'/>
           <div className="pl-14 -mr-20 pt-10 mt-20 absolute">
         <h1 className="font-extrabold text-[#0f070d] font-serif text-[32px]"> UNLEASH YOUR CREATIVITY<br/>WITH AI GENERATED <br/> NFT's </h1>
-        <a className="font-bold mt-10 w-35 bg-[#261c63] bg-opacity-75 text-white rounded p-2 shadow-lg absolute">
+        <Link to="/sellNFT" className="font-bold mt-10 w-35 bg-[#261c63] bg-opacity-75 text-white rounded p-2 shadow-lg absolute">
                     Get started
-                </a>
+                </Link>
                 </div>
         </div>
         <div className="flex flex-col place-items-center mt-10">
