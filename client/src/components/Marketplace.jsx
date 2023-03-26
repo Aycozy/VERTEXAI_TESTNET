@@ -31,6 +31,7 @@ return (
                     Get started
                </a>
         </div>
+        </div>
         <div className="flex flex-col place-items-center mt-10">
             <div className="md:text-xl font-bold font-serif text-white">
                 AI Colletions
