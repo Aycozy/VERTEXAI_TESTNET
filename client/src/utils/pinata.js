@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'redaxios';
 import FormData from 'form-data';
 
 const key = "6e5c04f27d6d7cdb0314"
