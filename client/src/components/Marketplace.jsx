@@ -8,8 +8,10 @@ import { TransactionContext } from "../context/TransactionContext";
 
 
 export default function Marketplace() {
-
-    const  { data, currentIndex } = useContext(TransactionContext);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const  { data } = useContext(TransactionContext);
+    
+    
    
 
     const images = [
@@ -19,6 +21,14 @@ export default function Marketplace() {
         
       ];
     
+      useEffect(() => {
+  const intervalId = setInterval(() => {
+    setCurrentIndex((currentIndex + 1) % 3);
+   
+  }, 5000); // Change the interval time as needed (in milliseconds)
+  return () => clearInterval(intervalId);
+
+}, [currentIndex]); 
 
 
 return (

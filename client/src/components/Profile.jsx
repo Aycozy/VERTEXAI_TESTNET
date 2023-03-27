@@ -10,7 +10,7 @@ export default function Profile () {
     
 
     return (
-        <div className="profileClass h-[400px]">
+        <div className="profileClass min-h-full">
             <div className="profileClass">
             <div className="flex text-center flex-col mt-11 md:text-2xl text-black">
                 <div className="mb-5">
@@ -18,7 +18,6 @@ export default function Profile () {
                     {address}
                 </div>
             </div>
-            
             <div className="flex flex-row text-center justify-center mt-10 md:text-2xl text-black">
                     <div>
                         <h2 className="font-bold">No. of NFTs</h2>

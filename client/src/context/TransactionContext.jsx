@@ -1,10 +1,9 @@
 import React, { useEffect, useState, } from "react";
 import { ethers } from "ethers";
-import { useLocation, useParams } from 'react-router-dom';
 import {Data} from '../utils/marketPlace'
 import {uploadJSONToIPFS, uploadFileToIPFS} from '../utils/pinata.js'
 import MarketplaceJSON  from "../Marketplace.json";
-import axios from "axios";
+import axios from "redaxios";
 
 
 export const TransactionContext = React.createContext();
@@ -34,23 +33,14 @@ export const TransactionsProvider = ({ children }) => {
   const [nftData, updateNft] = useState([]);
   const [local, setLocal] = useState(true);
   const [base, setBase] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  
 
 let photo;
 
 
-  const params = useParams();
-  const tokenId = params.tokenId;
-console.log("token id",tokenId);
+  
 
-useEffect(() => {
-  const intervalId = setInterval(() => {
-    setCurrentIndex((currentIndex + 1) % 3);
-   
-  }, 5000); // Change the interval time as needed (in milliseconds)
-  return () => clearInterval(intervalId);
 
-}, [currentIndex]);
 
 useEffect(() => {
   checkIfWalletIsConnect();
@@ -115,7 +105,6 @@ useEffect(() => {
     currAddress(addr);
   }
 
-console.log ("address", data);
 
   const OnChangeFile = async (e)=>  {
     var file = e.target.files[0];
@@ -220,7 +209,7 @@ const listNFT = async (e)=>  {
     
     updateFetched(true);
     updateData(items);
-    coonsole.log("items", items);
+    
 }
 
 
@@ -339,9 +328,8 @@ const handleLocal = () => {
    setLocal(!local);
    setBase(!base);
 }
-console.log("address", address);
 
-console.log ("bumbum", getAllNFTs());
+getAllNFTs();
 
   return (
     <TransactionContext.Provider
@@ -368,7 +356,6 @@ console.log ("bumbum", getAllNFTs());
         local,
         handleLocal,
         base,
-        currentIndex
       }}
     >
       {children}
