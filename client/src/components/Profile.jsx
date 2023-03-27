@@ -18,6 +18,7 @@ export default function Profile () {
                     {address}
                 </div>
             </div>
+            
             <div className="flex flex-row text-center justify-center mt-10 md:text-2xl text-black">
                     <div>
                         <h2 className="font-bold">No. of NFTs</h2>

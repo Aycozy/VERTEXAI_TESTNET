@@ -1,8 +1,8 @@
 import axios from 'redaxios';
 import FormData from 'form-data';
 
-const key = "6e5c04f27d6d7cdb0314"
-const secret = "e72fd25a48d99a4dd22b88264aabb551ca02ef44d1b02786b5c6ccadb1ca082b"
+const key ="6e5c04f27d6d7cdb0314"
+const secret ="e72fd25a48d99a4dd22b88264aabb551ca02ef44d1b02786b5c6ccadb1ca082b"
 
 
 

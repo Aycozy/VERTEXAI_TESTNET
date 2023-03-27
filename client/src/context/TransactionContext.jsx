@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import {Data} from '../utils/marketPlace'
 import {uploadJSONToIPFS, uploadFileToIPFS} from '../utils/pinata.js'
 import MarketplaceJSON  from "../Marketplace.json";
-import axios from 'redaxios';
+import axios from "axios";
 
 
 export const TransactionContext = React.createContext();
@@ -42,6 +42,23 @@ let photo;
   const params = useParams();
   const tokenId = params.tokenId;
 console.log("token id",tokenId);
+
+useEffect(() => {
+  const intervalId = setInterval(() => {
+    setCurrentIndex((currentIndex + 1) % 3);
+   
+  }, 5000); // Change the interval time as needed (in milliseconds)
+  return () => clearInterval(intervalId);
+
+}, [currentIndex]);
+
+useEffect(() => {
+  checkIfWalletIsConnect();
+  getAddress();
+  getAllNFTs();
+  getNFTData();  
+}, []);
+
 
   const checkIfWalletIsConnect = async () => {
     try {
@@ -98,7 +115,7 @@ console.log("token id",tokenId);
     currAddress(addr);
   }
 
-
+console.log ("address", data);
 
   const OnChangeFile = async (e)=>  {
     var file = e.target.files[0];
@@ -176,7 +193,9 @@ const listNFT = async (e)=>  {
     //Pull the deployed contract instance
     let contract = createEthereumContract();
     //create an NFT Token
+  
     let transaction = await contract.getAllNFTs()
+
 
     //Fetch all the details of every NFT from the contract and display
     const items = await Promise.all(transaction.map(async i => {
@@ -201,6 +220,7 @@ const listNFT = async (e)=>  {
     
     updateFetched(true);
     updateData(items);
+    coonsole.log("items", items);
 }
 
 
@@ -285,28 +305,12 @@ const tokenData = async (tokenId) =>{
    
    // tokenData(tokenId); 
   
-useEffect(() => {
-  const intervalId = setInterval(() => {
-    setCurrentIndex((currentIndex + 1) % 3);
-   
-  }, 5000); // Change the interval time as needed (in milliseconds)
-  return () => clearInterval(intervalId);
-
-}, [currentIndex]);
-
-useEffect(() => {
-  checkIfWalletIsConnect();
-  getAddress();
-  getAllNFTs();
-  getNFTData();  
-}, []);
 
 const sendTO = async(pic) => {
   const response = await fetch(pic);
   const blob = await response.blob();
    const file = new File([blob], "file.jpeg", { type: "image/jpeg" });
   photo = file;
-  console.log("pico", photo);
   AiFile();
 }
 
@@ -335,6 +339,9 @@ const handleLocal = () => {
    setLocal(!local);
    setBase(!base);
 }
+console.log("address", address);
+
+console.log ("bumbum", getAllNFTs());
 
   return (
     <TransactionContext.Provider
